@@ -1,8 +1,14 @@
 import qrcode
 
 num_qr = int(input('How many QR codes? '))
+
 clr1 = input('Enter fill colour: ')
 clr2 = input('Enter back colour: ')
+
+if not clr1:
+    clr1 = 'black'
+if not clr2:
+    clr2 = 'white'
 
 for i in range(num_qr):
     print(f'\n--- QR Code {i + 1} ---')
@@ -16,5 +22,6 @@ for i in range(num_qr):
     image = qr.make_image(fill_color=clr1, back_color=clr2)
     image.save(filename)
     print(f'QR code saved as {filename}')
+
 
 print(f'\n✅ All {num_qr} QR codes generated!')
